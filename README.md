@@ -61,5 +61,5 @@ PHP 5.6
 
 == Changelog ==
 
-= 0.2 =
+= 0.3 =
 * Alfa version

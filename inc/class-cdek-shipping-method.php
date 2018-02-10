@@ -18,9 +18,9 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
       $this->id                 = 'cdek';
       $this->method_title       = 'СДЭК';
       $this->method_description = __( 'Поддержка системы СДЭК' ); //
-      $this->init();
       $this->enabled = isset( $this->settings['enabled'] ) ? $this->settings['enabled'] : 'yes';
       $this->title = isset( $this->settings['title'] ) ? $this->settings['title'] : "Доставка СДЭК";
+      $this->init();
     }
 
     /**
@@ -36,8 +36,10 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
       $this->init_settings(); // This is part of the settings API. Loads settings you previously init.
       $this->enabled	= $this->get_option( 'enabled' );
       $this->title 		= $this->get_option( 'title' );
+
       // Save settings in admin if you have any defined
       add_action( 'woocommerce_update_options_shipping_' . $this->id, array( $this, 'process_admin_options' ) );
+
       add_action('woocommerce_checkout_update_order_meta', array( $this, 'add_order_meta'), 10, 2);
     }
 
@@ -68,55 +70,53 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
      * @param mixed $package
      * @return void
      */
-    public function calculate_shipping( $package ) {
+    public function calculate_shipping( $package = array() ) {
+
       if( ! empty($_REQUEST["post_data"])){
         $post_data = wp_parse_args($_REQUEST["post_data"]);
-        // if( ! empty($post_data["yd_cost"])){
-        //   $cost = (int)$post_data["yd_cost"];
-        //   WC()->session->set( 'yd_cost', $cost );
-        // }
       }
-      if( ! empty($post_data["yd_params"])){
-        $params = json_decode($post_data["yd_params"], true);
+
+      if( ! empty($post_data["cdek_ship_data"])){
+        $params = json_decode($post_data["cdek_ship_data"], true);
         $params = $params[0];
-        WC()->session->set( 'yd_params', $params );
+        WC()->session->set( 'cdek_ship_data', $params );
       }
-      $params = WC()->session->get('yd_params');
-      if(empty($params['cost'])){
+
+      $params = WC()->session->get('cdek_ship_data');
+
+      if(empty($params['price'])){
         $cost = 0;
       } else {
-        $cost = $params['cost'];
+        $cost = $params['price'];
       }
-      if(empty($params["name"])){
+      if(empty($params["label"])){
         $label = $this->title;
       } else {
-        $label = sprintf('%s (%s)', $this->title, $params["name"]);
+        $label = sprintf('%s (%s)', $this->title, 'test');
       }
       $rate = array(
         'id' => $this->id,
         'label' => $label, //@TODO: add name a variant
         'cost' => $cost
       );
-      // do_action('logger_u7', ['test4', $rate]); //@TODO: remove logger
+
       $this->add_rate( $rate );
     }
+
+
     function add_order_meta($order_id, $data){
       $order = wc_get_order($order_id);
       $items = $order->get_items();
       $shipping_methods = $order->get_shipping_methods();
-      $params = WC()->session->get('yd_params');
+      $params = WC()->session->get('cdek_ship_data');
       foreach ( $order->get_shipping_methods() as $shipping_method ) {
             $mid = $shipping_method->get_id();
-            $shipping_method->update_meta_data( 'yd_id', $params["id"] );
-            $shipping_method->update_meta_data( 'yd_delivery_service_id', $params["delivery_service_id"] );
-            $shipping_method->update_meta_data( 'yd_unique_name', $params["unique_name"] );
-            $shipping_method->update_meta_data( 'yd_name', $params["name"] );
+            $shipping_method->update_meta_data( 'cdek_id', $params["id"] );
+            $shipping_method->update_meta_data( 'price', $params["price"] );
+            $shipping_method->update_meta_data( 'city_id', $params["city_id"] );
+            $shipping_method->update_meta_data( 'time', $params["time"] );
             $shipping_method->save();
-            // wc_update_order_item_meta($mid,'dsf', 'sdfsdf');
-            // $mid = $shipping_method->get_id();
       }
-      // $shipping_method = $shipping_methods[0];
-      // do_action('logger_u7', ['test2', $params]); //@TODO: remove logger
     }
   }
 }

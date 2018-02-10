@@ -62,14 +62,16 @@ class CDEK_Widget
     ?>
 
     <script id="woo-sdek-init" type="text/javascript">
-      var widjet = new ISDEKWidjet({
-        hideMessages: false,
+
+      var WooSDEK_Widget = new ISDEKWidjet({
+        hideMessages: true,
         defaultCity: '<?php echo $this->destination_data['city'] ?>',
         cityFrom: '<?php echo $this->base_city ?>',
         country: 'Россия',
         choose: true, //скрыть кнопку выбора
+        popup: true,
         //path : true,
-        link: 'forpvz',
+        // link: 'forpvz',
         goods: <?php echo json_encode($goods) ?>,
         // goods: [{
         //   length: 10,
@@ -92,7 +94,7 @@ class CDEK_Widget
 
         var cdek_ship_data = [{
           'id': wat.id,
-          'city': wat.city,
+          'city_id': wat.city,
           'time': wat.term,
           'price': wat.price,
         }];
@@ -148,6 +150,34 @@ class CDEK_Widget
     </script>
 
     <script type="text/javascript">
+      jQuery( function( $ ) {
+
+        $( document ).on( 'click', '#cdek-widget-open', function() {
+          WooSDEK_Widget.open();
+          localStorage.setItem('woocdek_opened', 1);
+
+        });
+
+
+        // var cdek_not_opened = true;
+
+        $( document.body ).on( 'updated_checkout', function(){
+
+          var e = localStorage.getItem('woocdek_opened');
+          if($('#shipping_method_0_cdek').is(':checked') && e != 1) {
+            localStorage.setItem('woocdek_opened', 1);
+            WooSDEK_Widget.open();
+          }
+
+          if( ! $('#shipping_method_0_cdek').is(':checked')){
+            localStorage.removeItem('woocdek_opened');
+          }
+        });
+      });
+
+
+
+
       function scrollIntoView(eleID) {
          var e = document.getElementById(eleID);
          if (!!e && e.scrollIntoView) {
@@ -166,7 +196,7 @@ class CDEK_Widget
     // do_action('logger_u7', ['t1', $method]);
     if('cdek' == $method->id){
       echo '<input type="hidden" name="cdek_ship_data" id="cdek_ship_data"/>';
-      printf('<div><a href="%s" data-ydwidget-open>Выбрать варианты</a></div>', '#cdek-select-variants');
+      printf('<div><a href="%s" id="cdek-widget-open">Выбрать варианты</a></div>', '#cdek-select-variants1');
       // echo '<div><small id="delivery_description"></small></div>';
     }
   }
@@ -178,17 +208,7 @@ class CDEK_Widget
     if(empty($this->base_city)){
       return;
     }
-
-
     ?>
-    <!-- Элемент-контейнер виджета. Класс yd-widget-modal обеспечивает отображение виджета в модальном окне -->
-    <div id="cdek_widget" class="cdek-widget-modal"></div>
-
-    <!-- элемент для отображения ошибок валидации -->
-    <div id="cdek_widget_errors"></div>
-
-
-
     <!-- <button onclick="addGood();">Добавить товар</button> -->
     <br id="cdek-select-variants">
     <br>
@@ -196,8 +216,6 @@ class CDEK_Widget
     <p><strong>Выберите точку доставки</strong></p>
     <div id="forpvz" style="width:100%; height:600px;"></div>
     <div id="service_message"></div>
-
-
 
     <?php
   }
@@ -208,10 +226,10 @@ class CDEK_Widget
       $ship_data = array();
       foreach($ship_data_src[0]["contents"] as $item_ship){
         $ship_data[] = array(
-          'length' => (int)$item_ship["data"]->length,
-          'width' => (int)$item_ship["data"]->width,
-          'height' => (int)$item_ship["data"]->height,
-          'weight' => (int)$item_ship["data"]->weight,
+          'length' => (int)$item_ship["data"]->get_length(),
+          'width' => (int)$item_ship["data"]->get_width(),
+          'height' => (int)$item_ship["data"]->get_height(),
+          'weight' => $item_ship["data"]->get_weight(),
         );
       }
     } else {
