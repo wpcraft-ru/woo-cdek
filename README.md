@@ -1,12 +1,21 @@
 === WooCommerce CDEK ===
+
 Contributors: casepress
+
 Donate link: https://wpcraft.ru/product/woocommerce-cdek-extra/
+
 Tags: cdek, woocommerce, sync, integration, delivery, shipment
+
 Requires at least: 4.0
+
 Tested up to: 4.8
 Stable tag: 4.3
+
 License: GPLv2 or later
+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+
 
 CDEK and WooCommerce - sync, integration, connection
 
