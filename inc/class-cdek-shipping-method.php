@@ -5,14 +5,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function wpc_cdek_shipping_init() {
 if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
-  class WC_CDEK_Shipping_Method extends WC_Shipping_Method {
+  class WC_CDEK_Shipping_Method extends WC_Shipping_Method
+  {
     /**
      * Constructor for your shipping class
      *
      * @access public
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
       $this->id                 = 'cdek';
       $this->method_title       = 'СДЭК';
       $this->method_description = __( 'Поддержка системы СДЭК' ); //
@@ -20,13 +22,15 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
       $this->enabled = isset( $this->settings['enabled'] ) ? $this->settings['enabled'] : 'yes';
       $this->title = isset( $this->settings['title'] ) ? $this->settings['title'] : "Доставка СДЭК";
     }
+
     /**
      * Init your settings
      *
      * @access public
      * @return void
      */
-    function init() {
+    function init()
+    {
       // Load the settings API
       $this->init_form_fields(); // This is part of the settings API. Override the method to add your own settings
       $this->init_settings(); // This is part of the settings API. Loads settings you previously init.
@@ -36,6 +40,7 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
       add_action( 'woocommerce_update_options_shipping_' . $this->id, array( $this, 'process_admin_options' ) );
       add_action('woocommerce_checkout_update_order_meta', array( $this, 'add_order_meta'), 10, 2);
     }
+
     /**
      * Initialise Gateway Settings Form Fields.
      */
