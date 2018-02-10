@@ -11,6 +11,7 @@ Version: 0.3
 
 require_once 'inc/class-cdek-shipping-method.php';
 require_once 'inc/class-cdek-widget.php';
+require_once 'inc/class-settings.php';
 
 /*
 * Add class for init
