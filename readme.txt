@@ -62,5 +62,9 @@ PHP 5.6
 
 == Changelog ==
 
+= 0.4 =
+* Add settings page
+* Beta version
+
 = 0.3 =
 * Alfa version

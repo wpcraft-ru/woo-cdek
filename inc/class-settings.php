@@ -29,6 +29,14 @@ class WooCDEK_Settings {
       $page = 'woocdek-settings',
       $section = 'woocdek'
     );
+    register_setting('woocdek-settings', 'woocdek_id');
+    add_settings_field(
+      $id = 'woocdek_id',
+      $title = 'ID доступа',
+      $callback = [$this, 'display_woocdek_id'],
+      $page = 'woocdek-settings',
+      $section = 'woocdek'
+    );
 
   }
 
@@ -37,6 +45,14 @@ class WooCDEK_Settings {
     printf('<input type="password" name="%s" value="%s"/>', $name, get_option($name));
     ?>
     <p><small>Получить ключ доступа можно на странице настроек API СДЭК</small></p>
+    <?php
+  }
+
+  function display_woocdek_id(){
+    $name ='woocdek_id';
+    printf('<input type="text" name="%s" value="%s"/>', $name, get_option($name));
+    ?>
+    <p><small>Получить ID доступа можно на странице настроек API СДЭК</small></p>
     <?php
   }
 
