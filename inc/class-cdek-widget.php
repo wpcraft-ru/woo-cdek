@@ -68,10 +68,10 @@ class CDEK_Widget
         defaultCity: '<?php echo $this->destination_data['city'] ?>',
         cityFrom: '<?php echo $this->base_city ?>',
         country: 'Россия',
-        choose: true, //скрыть кнопку выбора
-        popup: true,
-        //path : true,
-        // link: 'forpvz',
+        choose: false, //скрыть кнопку выбора
+        // popup: true,
+        // path : true,
+        link: 'forpvz',
         goods: <?php echo json_encode($goods) ?>,
         // goods: [{
         //   length: 10,
@@ -79,6 +79,7 @@ class CDEK_Widget
         //   height: 10,
         //   weight: 1
         // }],
+        servicepath: '<?php echo site_url('cdek-service') ?>',
         onReady: onReady,
         onChoose: onChoose,
         onChooseProfile: onChooseProfile,
@@ -138,7 +139,7 @@ class CDEK_Widget
         // }
     </script>
 
-    <script>
+    <script type="text/javascript">
       window.servmTimeout = false;
       serviceMess = function (text) {
         clearTimeout(window.servmTimeout);
@@ -153,6 +154,7 @@ class CDEK_Widget
       jQuery( function( $ ) {
 
         $( document ).on( 'click', '#cdek-widget-open', function() {
+          // alert(1);
           WooSDEK_Widget.open();
           localStorage.setItem('woocdek_opened', 1);
 
@@ -196,26 +198,24 @@ class CDEK_Widget
     // do_action('logger_u7', ['t1', $method]);
     if('cdek' == $method->id){
       echo '<input type="hidden" name="cdek_ship_data" id="cdek_ship_data"/>';
-      printf('<div><a href="%s" id="cdek-widget-open">Выбрать варианты</a></div>', '#cdek-select-variants1');
+      printf('<div><a href="%s" id="cdek-widget-open">Выбрать варианты</a></div>', '#cdek-select-variants');
       // echo '<div><small id="delivery_description"></small></div>';
     }
   }
 
 
 
-  function display_html(){
-
+  function display_html()
+  {
     if(empty($this->base_city)){
       return;
     }
     ?>
     <!-- <button onclick="addGood();">Добавить товар</button> -->
-    <br id="cdek-select-variants">
-    <br>
-    <br>
-    <p><strong>Выберите точку доставки</strong></p>
+    <!-- <br id="cdek-select-variants"> -->
+    <!-- <p><strong>Выберите точку доставки</strong></p> -->
     <div id="forpvz" style="width:100%; height:600px;"></div>
-    <div id="service_message"></div>
+    <!-- <div id="service_message"></div> -->
 
     <?php
   }

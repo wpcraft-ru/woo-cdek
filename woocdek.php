@@ -5,13 +5,13 @@ Plugin URI: https://github.com/uptimizt/woocommerce-cdek
 Description: Интеграция WooCommerce & СДЭК.
 Author: WPCraft
 Author URI: http://wpcraft.ru/?utm_source=wpplugin&utm_medium=plugin-link&utm_campaign=WooAmoConnector
-Version: 0.4
+Version: 0.5
 */
-
 
 require_once 'inc/class-cdek-shipping-method.php';
 require_once 'inc/class-cdek-widget.php';
 require_once 'inc/class-settings.php';
+require_once 'inc/class-cdek-service.php';
 
 /*
 * Add class for init

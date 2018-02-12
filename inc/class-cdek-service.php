@@ -1,17 +1,62 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-header('Access-Control-Allow-Origin: *');
-error_reporting(0);
-ISDEKservice::setTarifPriority(
-  array(233, 137, 139, 16, 18, 11, 1, 3, 61, 60, 59, 58, 57, 83),
-  array(234, 136, 138, 15, 17, 62, 63, 5, 10, 12)
-);
 
-$action = $_REQUEST['isdek_action'];
-if (method_exists('ISDEKservice', $action)) {
-  ISDEKservice::$action($_REQUEST);
+/*
+
+*/
+
+
+/**
+ * Add endpoint /cdek-service/ for example: https://site.dev/cdek-service/
+ *
+ * @link https://wordpress.org/ see WordPress
+ */
+class WP_SDEK_Service_Bridge
+{
+  public function __construct()
+  {
+    add_action('init', array($this, 'add_endpoint'));
+    add_action('wp_loaded', array($this, 'flush_rewrite_rules_hack') );
+
+    add_action('template_redirect', array($this, 'hybrydauth_start'));
+  }
+
+  function hybrydauth_start() {
+    $call = get_query_var('cdek-service', false);
+    //проверям на наличие запроса в URL Endpoint
+    if( $call === false ){
+      return;
+    }
+
+    header('Access-Control-Allow-Origin: *');
+    error_reporting(0);
+    ISDEKservice::setTarifPriority(
+      array(233, 137, 139, 16, 18, 11, 1, 3, 61, 60, 59, 58, 57, 83),
+      array(234, 136, 138, 15, 17, 62, 63, 5, 10, 12)
+    );
+
+    $action = $_REQUEST['isdek_action'];
+    if (method_exists('ISDEKservice', $action)) {
+      ISDEKservice::$action($_REQUEST);
+    }
+
+    // var_dump(1);
+    exit;
+  }
+
+  function flush_rewrite_rules_hack(){
+    $rules = get_option( 'rewrite_rules' );
+    if ( ! isset( $rules['cdek-service(/(.*))?/?$'] ) ) {
+        flush_rewrite_rules( $hard = false );
+    }
+  }
+
+  function add_endpoint() {
+    add_rewrite_endpoint( 'cdek-service', EP_ROOT );
+  }
 }
+new WP_SDEK_Service_Bridge;
 
 class ISDEKservice
 {
@@ -389,5 +434,3 @@ class ISDEKservice
     echo json_encode(self::$answer);
   }
 }
-
-?>
