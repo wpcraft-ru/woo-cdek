@@ -12,6 +12,7 @@ class CDEK_Widget
   function __construct()
   {
     // add_action('woocommerce_checkout_process', array($this, 'checkout_control_errors'));
+    $this->base_city = get_option( 'woocommerce_store_city', '' );
 
     add_action('wp_footer', array($this, 'before_display_js'), 100);
 
@@ -20,16 +21,36 @@ class CDEK_Widget
 
     add_action('woocommerce_after_shipping_rate', array($this, 'display_btn_select_ship') );
 
-    $this->base_city = get_option( 'woocommerce_store_city', '' );
+    add_action( "wp_enqueue_scripts", array( $this, "wp_enqueue_scripts" ) );
+    add_filter( 'script_loader_tag', array( $this, 'script_loader_tag'), 10, 3 );
 
+
+  }
+
+
+  /**
+   * Add JS lib for SDEK
+   */
+  public function wp_enqueue_scripts()
+  {
+    wp_enqueue_script( 'sdek-main-js', plugins_url('inc/widjet.js' , dirname(__FILE__)), array(), '1.0', true);
+  }
+
+  /**
+   * Add ID for JS tag. Need for SDEK JS.
+   */
+  function script_loader_tag( $tag, $handle, $src )
+  {
+    if($handle == 'sdek-main-js'){
+      $tag = sprintf('<script type="text/javascript" id="ISDEKscript" src="%s"></script>', $src);
+    }
+    return $tag;
   }
 
   /**
    * Display JS for Widget SDEK
    */
   public function display_js($goods) {
-
-    printf('<script id="ISDEKscript" type="text/javascript" src="%s"></script>', plugins_url( 'inc/widjet.js' , dirname(__FILE__)));
 
     ?>
 
@@ -41,9 +62,9 @@ class CDEK_Widget
         cityFrom: '<?php echo $this->base_city ?>',
         country: 'Россия',
         choose: false, //скрыть кнопку выбора
-        // popup: true,
+        popup: true,
         // path : true,
-        link: 'forpvz',
+        // link: 'forpvz',
         goods: <?php echo json_encode($goods) ?>,
         // goods: [{
         //   length: 10,
@@ -194,13 +215,11 @@ class CDEK_Widget
   /**
   * Добавляем Ссылку и Контейнер для выбора и вывода способов доставки Яндекс
   */
-  function display_btn_select_ship($method){
-
-    // do_action('logger_u7', ['t1', $method]);
+  function display_btn_select_ship($method)
+  {
     if('cdek' == $method->id){
       echo '<input type="hidden" name="cdek_ship_data" id="cdek_ship_data"/>';
       printf('<div><a href="%s" id="cdek-widget-open">Выбрать варианты</a></div>', '#cdek-select-variants');
-      // echo '<div><small id="delivery_description"></small></div>';
     }
   }
 
@@ -215,7 +234,7 @@ class CDEK_Widget
     <!-- <button onclick="addGood();">Добавить товар</button> -->
     <!-- <br id="cdek-select-variants"> -->
     <!-- <p><strong>Выберите точку доставки</strong></p> -->
-    <div id="forpvz" style="width:100%; height:600px;"></div>
+    <!-- <div id="forpvz" style="width:100%; height:600px;"></div> -->
     <!-- <div id="service_message"></div> -->
 
     <?php
