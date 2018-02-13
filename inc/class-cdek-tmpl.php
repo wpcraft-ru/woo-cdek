@@ -10,10 +10,10 @@ class WP_SDEK_Template
     add_action('init', array($this, 'add_endpoint'));
     add_action('wp_loaded', array($this, 'flush_rewrite_rules_hack') );
 
-    add_action('template_redirect', array($this, 'hybrydauth_start'));
+    add_action('template_redirect', array($this, 'request'));
   }
 
-  function hybrydauth_start() {
+  function request() {
     $call = get_query_var('cdek-tmpl', false);
     //проверям на наличие запроса в URL Endpoint
     if( $call === false ){
