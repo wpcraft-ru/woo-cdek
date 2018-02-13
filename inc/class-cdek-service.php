@@ -58,6 +58,8 @@ class WP_SDEK_Service_Bridge
 }
 new WP_SDEK_Service_Bridge;
 
+
+
 class ISDEKservice
 {
   // auth
@@ -66,6 +68,11 @@ class ISDEKservice
 
 
   protected static $tarifPriority = false;
+
+  function __construct(){
+    $this->account = get_option('woocdek_id');
+    $this->key = get_option('woocdek_key');
+  }
 
   // Workout
   public static function setTarifPriority($arCourier, $arPickup)

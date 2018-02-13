@@ -62,6 +62,9 @@ PHP 5.6
 
 == Changelog ==
 
+= 0.6 =
+* Переделал temaplate.php на логику WP
+
 = 0.5 =
 * Переделал service.php на логику WP
 

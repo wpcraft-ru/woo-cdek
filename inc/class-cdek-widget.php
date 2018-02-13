@@ -13,49 +13,21 @@ class CDEK_Widget
   {
     // add_action('woocommerce_checkout_process', array($this, 'checkout_control_errors'));
 
-    add_action('wp_footer', array($this, 'display_js'), 100);
+    add_action('wp_footer', array($this, 'before_display_js'), 100);
 
     add_action('woocommerce_after_cart', array($this, 'display_html'));
     add_action('woocommerce_after_checkout_form', array($this, 'display_html'));
-
-
 
     add_action('woocommerce_after_shipping_rate', array($this, 'display_btn_select_ship') );
 
     $this->base_city = get_option( 'woocommerce_store_city', '' );
 
-
   }
 
-
-
-  function display_js()
-  {
-    if( ! is_checkout()){
-      return;
-    }
-
-
-    if(empty($this->base_city)){
-      return;
-    }
-
-    $this->destination_data = $this->get_destination_data();
-
-    if(empty($this->destination_data['city'])){
-      return;
-    }
-
-    $cart_data = array(
-      'quantity' => WC()->cart->get_cart_contents_count(),
-      'weight' => WC()->cart->get_cart_contents_weight(),
-      'cost' => WC()->cart->cart_contents_total,
-    );
-
-    $goods = $this->get_goods_data();
-
-
-    // do_action('logger_u7', $this->base_city);
+  /**
+   * Display JS for Widget SDEK
+   */
+  public function display_js($goods) {
 
     printf('<script id="ISDEKscript" type="text/javascript" src="%s"></script>', plugins_url( 'inc/widjet.js' , dirname(__FILE__)));
 
@@ -80,6 +52,7 @@ class CDEK_Widget
         //   weight: 1
         // }],
         servicepath: '<?php echo site_url('cdek-service') ?>',
+        templatepath: '<?php echo site_url('cdek-tmpl') ?>',
         onReady: onReady,
         onChoose: onChoose,
         onChooseProfile: onChooseProfile,
@@ -188,6 +161,34 @@ class CDEK_Widget
       }
     </script>
     <?php
+  }
+
+  function before_display_js()
+  {
+    if( ! is_checkout()){
+      return;
+    }
+
+
+    if(empty($this->base_city)){
+      return;
+    }
+
+    $this->destination_data = $this->get_destination_data();
+
+    if(empty($this->destination_data['city'])){
+      return;
+    }
+
+    $cart_data = array(
+      'quantity' => WC()->cart->get_cart_contents_count(),
+      'weight' => WC()->cart->get_cart_contents_weight(),
+      'cost' => WC()->cart->cart_contents_total,
+    );
+
+    $goods = $this->get_goods_data();
+
+    $this->display_js($goods);
   }
 
   /**
