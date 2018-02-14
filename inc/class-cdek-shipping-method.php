@@ -96,7 +96,7 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
       }
       $rate = array(
         'id' => $this->id,
-        'label' => $label, //@TODO: add name a variant
+        'label' => $label, 
         'cost' => $cost
       );
 

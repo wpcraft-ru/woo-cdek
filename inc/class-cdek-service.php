@@ -1,12 +1,5 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-
-/*
-
-*/
-
-
 /**
  * Add endpoint /cdek-service/ for example: https://site.dev/cdek-service/
  *
@@ -30,7 +23,7 @@ class WP_SDEK_Service_Bridge
     }
 
     header('Access-Control-Allow-Origin: *');
-    error_reporting(0);
+    
     ISDEKservice::setTarifPriority(
       array(233, 137, 139, 16, 18, 11, 1, 3, 61, 60, 59, 58, 57, 83),
       array(234, 136, 138, 15, 17, 62, 63, 5, 10, 12)
