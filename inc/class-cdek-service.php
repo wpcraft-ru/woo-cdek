@@ -358,7 +358,7 @@ class ISDEKservice
 
     if($code == 200){
       $result = array(
-        'code'   => wp_remote_retrieve_response_code($response),
+        'code'   => $code,
         'result' => wp_remote_retrieve_body($response)
       );
     } else {
@@ -366,29 +366,6 @@ class ISDEKservice
     }
 
     return $result;
-  }
-
-  protected static function client_v0($where, $data = false)
-  {
-    if (!function_exists('curl_init')) {
-      self::toAnswer(array('error' => 'No php CURL-library installed on server'));
-      return false;
-    }
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $where);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    if ($data) {
-      curl_setopt($ch, CURLOPT_POST, TRUE);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    }
-    $result = curl_exec($ch);
-    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-    return array(
-      'code'   => $code,
-      'result' => $result
-    );
   }
 
   // LANG
