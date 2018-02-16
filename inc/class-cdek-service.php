@@ -23,7 +23,7 @@ class WP_SDEK_Service_Bridge
     }
 
     header('Access-Control-Allow-Origin: *');
-    
+
     ISDEKservice::setTarifPriority(
       array(233, 137, 139, 16, 18, 11, 1, 3, 61, 60, 59, 58, 57, 83),
       array(234, 136, 138, 15, 17, 62, 63, 5, 10, 12)
@@ -344,6 +344,31 @@ class ISDEKservice
   }
 
   protected static function client($where, $data = false)
+  {
+    $args = array();
+
+    if ($data) {
+      $args['body'] = $data;
+      $args['method'] = 'POST';
+    }
+
+    $response = wp_remote_request($where, $args);
+
+    $code = wp_remote_retrieve_response_code($response);
+
+    if($code == 200){
+      $result = array(
+        'code'   => wp_remote_retrieve_response_code($response),
+        'result' => wp_remote_retrieve_body($response)
+      );
+    } else {
+      $result = false;
+    }
+
+    return $result;
+  }
+
+  protected static function client_v0($where, $data = false)
   {
     if (!function_exists('curl_init')) {
       self::toAnswer(array('error' => 'No php CURL-library installed on server'));

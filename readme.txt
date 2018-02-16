@@ -62,6 +62,9 @@ PHP 5.6
 
 == Changelog ==
 
+= 0.7.2 =
+* Переписан curl -> wp_http
+
 = 0.7.1 =
 * Удален error_reporting(0)
 
