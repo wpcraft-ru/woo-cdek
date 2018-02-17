@@ -107,6 +107,7 @@ class CDEK_Widget
           'city_id': wat.city,
           'time': wat.term,
           'price': wat.price,
+          'address': wat.PVZ.Address,
         }];
 
         document.getElementById('cdek_ship_data').value = JSON.stringify(cdek_ship_data);

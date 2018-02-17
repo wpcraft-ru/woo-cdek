@@ -63,14 +63,3 @@ e.g.
 WordPress 4.5
 WooCommerce 3.0 - мб будет работать на Woo 2.х но не факт.
 PHP 5.6
-
-
-== Screenshots ==
-
-1. Страница настроек.
-2. Страница управления
-
-== Changelog ==
-
-= 0.3 =
-* Alfa version

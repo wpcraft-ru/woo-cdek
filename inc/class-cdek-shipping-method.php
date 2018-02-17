@@ -96,7 +96,7 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
       }
       $rate = array(
         'id' => $this->id,
-        'label' => $label, 
+        'label' => $label,
         'cost' => $cost
       );
 
@@ -115,6 +115,7 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
             $shipping_method->update_meta_data( 'price', $params["price"] );
             $shipping_method->update_meta_data( 'city_id', $params["city_id"] );
             $shipping_method->update_meta_data( 'time', $params["time"] );
+            $shipping_method->update_meta_data( 'address', $params["address"] );
             $shipping_method->save();
       }
     }
