@@ -1,5 +1,7 @@
 function ipolWidjetController(setups) {
 
+
+
   var defSetups = {
     label: 'iWidjet',
     params: {}
@@ -579,7 +581,7 @@ function ISDEKWidjet(params) {
           started: false
         },
         function: function () {
-          // this.service.loadTag(this.options.get('path') + "ipjq.js", 'script', loaders.onIPJQLoad);
+          this.service.loadTag(this.options.get('path') + "ipjq.js", 'script', loaders.onIPJQLoad);
           this.service.loadTag("https://api-maps.yandex.ru/2.1.56/?lang=ru_RU", 'script', loaders.onYmapsLoad);
           this.service.loadTag(this.options.get('path') + 'style.css', 'link', loaders.onStylesLoad);
 

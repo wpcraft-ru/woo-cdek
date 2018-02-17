@@ -22,7 +22,7 @@ class CDEK_Widget
     add_action('woocommerce_after_shipping_rate', array($this, 'display_btn_select_ship') );
 
     //Add JS
-    // add_action( 'wp_head', array($this, 'add_js_params'));
+    add_action( 'wp_head', array($this, 'add_js_params'));
     add_action( "wp_enqueue_scripts", array( $this, "wp_enqueue_scripts" ) );
     add_filter( 'script_loader_tag', array( $this, 'script_loader_tag'), 10, 3 );
 
@@ -38,7 +38,6 @@ class CDEK_Widget
 
     // wp_add_inline_script('sdek-main-js', 'var ipjq = jQuery;', 'before'); not worked with hook script_loader_tag
   }
-
 
   /**
    * Add JS params for SDEK Widget
