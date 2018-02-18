@@ -14,7 +14,6 @@ class CDEK_Widget
     // add_action('woocommerce_checkout_process', array($this, 'checkout_control_errors'));
     $this->base_city = get_option( 'woocommerce_store_city', '' );
 
-    add_action('wp_footer', array($this, 'before_display_js'), 100);
 
     add_action('woocommerce_after_cart', array($this, 'display_html'));
     add_action('woocommerce_after_checkout_form', array($this, 'display_html'));
@@ -25,9 +24,38 @@ class CDEK_Widget
     add_action( 'wp_head', array($this, 'add_js_params'));
     add_action( "wp_enqueue_scripts", array( $this, "wp_enqueue_scripts" ) );
     add_filter( 'script_loader_tag', array( $this, 'script_loader_tag'), 10, 3 );
+    add_action('wp_footer', array($this, 'before_display_js'), 100);
+    add_action('wp_footer', array($this, 'check_city'), 200);
 
   }
 
+  function check_city(){
+
+    if(empty($this->destination_data['city'])){
+      $city = $this->base_city;
+    } else {
+      $city = $this->destination_data['city'];
+    }
+
+    ?>
+    <script type="text/javascript">
+
+    jQuery( function( $ ) {
+      $('#billing_city').on('change', function() {
+        var city = $('#billing_city').val();
+        if( ! city){
+          WooSDEK_Widget.city.set('<?php echo $city ?>');
+        } else {
+          WooSDEK_Widget.city.set(city);
+        }
+      });
+
+    });
+    </script>
+
+
+    <?php
+  }
 
   /**
    * Add JS lib for SDEK
@@ -67,13 +95,18 @@ class CDEK_Widget
    */
   public function display_js($goods) {
 
+    if(empty($this->destination_data['city'])){
+      $city = $this->base_city;
+    } else {
+      $city = $this->destination_data['city'];
+    }
     ?>
 
     <script id="woo-sdek-init" type="text/javascript">
 
       var WooSDEK_Widget = new ISDEKWidjet({
         hideMessages: true,
-        defaultCity: '<?php echo $this->destination_data['city'] ?>',
+        defaultCity: '<?php echo $city ?>',
         cityFrom: '<?php echo $this->base_city ?>',
         country: 'Россия',
         choose: false, //скрыть кнопку выбора
@@ -114,53 +147,29 @@ class CDEK_Widget
 
         document.getElementById("order_review_heading").scrollIntoView();
 
-        serviceMess(
-          'Выбран пункт выдачи заказа ' + wat.id + "\n<br/>" +
-          'цена ' + wat.price + "\n<br/>" +
-          'срок ' + wat.term + " дн.\n<br/>" +
-          'город ' + wat.city
-        );
+        // serviceMess(
+        //   'Выбран пункт выдачи заказа ' + wat.id + "\n<br/>" +
+        //   'цена ' + wat.price + "\n<br/>" +
+        //   'срок ' + wat.term + " дн.\n<br/>" +
+        //   'город ' + wat.city
+        // );
 
         jQuery( 'form.checkout' ).trigger( 'update' );
       }
 
       function onChooseProfile(wat) {
         console.log('chosenCourier', wat);
-        serviceMess(
-          'Выбрана доставка курьером в город ' + wat.city + "\n<br/>" +
-          'цена ' + wat.price + "\n<br/>" +
-          'срок ' + wat.term + ' дн.'
-        );
+        // serviceMess(
+        //   'Выбрана доставка курьером в город ' + wat.city + "\n<br/>" +
+        //   'цена ' + wat.price + "\n<br/>" +
+        //   'срок ' + wat.term + ' дн.'
+        // );
       }
 
       function onCalculate(wat) {
         console.log('calculated', wat);
       }
 
-        // addGood = function () {
-        //   widjet.cargo.add({
-        //     length: 20,
-        //     width: 20,
-        //     height: 20,
-        //     weight: 1
-        //   });
-        //         ipjq('#cntItems').html ( parseInt(ipjq('#cntItems').html()) + 1 );
-        //         ipjq('#weiItems').html ( parseInt(ipjq('#weiItems').html()) + 2 );
-        // }
-    </script>
-
-    <script type="text/javascript">
-      window.servmTimeout = false;
-      serviceMess = function (text) {
-        clearTimeout(window.servmTimeout);
-        ipjq('#service_message').show().html(text);
-        window.servmTimeout = setTimeout(function () {
-          ipjq('#service_message').fadeOut(1000);
-        }, 4000);
-      }
-    </script>
-
-    <script type="text/javascript">
       jQuery( function( $ ) {
 
         $( document ).on( 'click', '#cdek-widget-open', function() {
@@ -187,25 +196,22 @@ class CDEK_Widget
         });
       });
 
-
-
-
       function scrollIntoView(eleID) {
          var e = document.getElementById(eleID);
          if (!!e && e.scrollIntoView) {
              e.scrollIntoView();
          }
       }
+
     </script>
     <?php
   }
 
   function before_display_js()
   {
-    if( ! is_checkout()){
+    if( ! is_checkout() and ! is_cart() ){
       return;
     }
-
 
     if(empty($this->base_city)){
       return;
@@ -214,8 +220,10 @@ class CDEK_Widget
     $this->destination_data = $this->get_destination_data();
 
     if(empty($this->destination_data['city'])){
-      return;
+      // return;
     }
+
+    do_action('logger_u7', ['t1', 4]);
 
     $cart_data = array(
       'quantity' => WC()->cart->get_cart_contents_count(),
@@ -224,6 +232,8 @@ class CDEK_Widget
     );
 
     $goods = $this->get_goods_data();
+
+    // do_action('logger_u7', ['t2', $goods]);
 
     $this->display_js($goods);
   }
@@ -238,7 +248,6 @@ class CDEK_Widget
       printf('<div><a href="%s" id="cdek-widget-open">Выбрать варианты</a></div>', '#cdek-select-variants');
     }
   }
-
 
 
   function display_html()
