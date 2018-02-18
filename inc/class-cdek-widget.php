@@ -129,6 +129,8 @@ class CDEK_Widget
       });
 
       function onReady() {
+        ipjq('#cdek-widget-open').css('display','inline');
+
         console.log('ready');
       }
 
@@ -245,7 +247,7 @@ class CDEK_Widget
   {
     if('cdek' == $method->id){
       echo '<input type="hidden" name="cdek_ship_data" id="cdek_ship_data"/>';
-      printf('<div><a href="%s" id="cdek-widget-open">Выбрать варианты</a></div>', '#cdek-select-variants');
+      printf('<div><a href="%s" id="cdek-widget-open" style=’display:none’>Выбрать варианты</a></div>', '#cdek-select-variants');
     }
   }
 
