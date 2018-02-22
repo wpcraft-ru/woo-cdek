@@ -13,13 +13,19 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
      * @access public
      * @return void
      */
-    public function __construct()
+    public function __construct($instance_id = 0 )
     {
       $this->id                 = 'cdek';
       $this->method_title       = 'СДЭК';
       $this->method_description = __( 'Поддержка системы СДЭК' ); //
       $this->enabled = isset( $this->settings['enabled'] ) ? $this->settings['enabled'] : 'yes';
       $this->title = isset( $this->settings['title'] ) ? $this->settings['title'] : "Доставка СДЭК";
+      $this->instance_id = absint( $instance_id );
+      $this->supports  = array(
+       'shipping-zones',
+       'instance-settings',
+       'instance-settings-modal',
+      );
       $this->init();
     }
 
@@ -72,6 +78,8 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
      */
     public function calculate_shipping( $package = array() ) {
 
+      do_action( 'logger_u7', ['t2', $package] );
+
       if( ! empty($_REQUEST["post_data"])){
         $post_data = wp_parse_args($_REQUEST["post_data"]);
       }
@@ -81,6 +89,8 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
         $params = $params[0];
         WC()->session->set( 'cdek_ship_data', $params );
       }
+
+      do_action( 'logger_u7', array( 'tag1', $post_data["cdek_ship_data"] ) );
 
       $params = WC()->session->get('cdek_ship_data');
 

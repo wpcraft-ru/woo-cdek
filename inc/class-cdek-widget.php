@@ -225,7 +225,7 @@ class CDEK_Widget
       // return;
     }
 
-    do_action('logger_u7', ['t1', 4]);
+    // do_action('logger_u7', ['t1', 4]);
 
     $cart_data = array(
       'quantity' => WC()->cart->get_cart_contents_count(),
