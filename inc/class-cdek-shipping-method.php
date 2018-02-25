@@ -44,7 +44,7 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
       // Load the settings API
       $this->init_form_fields(); // This is part of the settings API. Override the method to add your own settings
       $this->init_settings(); // This is part of the settings API. Loads settings you previously init.
-      // $this->enabled	= $this->get_option( 'enabled' );
+      $this->enabled	= $this->get_option( 'enabled' );
       $this->title 		= $this->get_option( 'title' );
       // $this->tax_status	     = $this->get_option( 'tax_status' );
       // $this->type                 = $this->get_option( 'type', 'class' );
@@ -95,7 +95,8 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
         WC()->session->set( 'cdek_ship_data', $params );
       }
 
-      do_action( 'logger_u7', array( 'tag1', $post_data["cdek_ship_data"] ) );
+      do_action( 'logger_u7', array( 'tag1', $post_data ) );
+      // do_action( 'logger_u7', array( 'tag1', $post_data["cdek_ship_data"] ) );
 
       $params = WC()->session->get('cdek_ship_data');
 
@@ -109,6 +110,7 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
       } else {
         $label = sprintf('%s (%s)', $this->title, 'test');
       }
+
       $rate = array(
         'id' => $this->id,
         'label' => $label,
