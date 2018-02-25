@@ -18,7 +18,7 @@ require_once 'inc/class-settings.php';
 * Add class for init
 */
 function woocdek_add_shipping_method( $methods ) {
-  $methods['cdek_wpc'] = 'WC_CDEK_Shipping_Method';
+  $methods['cdek'] = 'WC_CDEK_Shipping_Method';
   return $methods;
 }
 add_filter( 'woocommerce_shipping_methods', 'woocdek_add_shipping_method' );

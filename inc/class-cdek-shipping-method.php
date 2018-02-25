@@ -13,19 +13,23 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
      * @access public
      * @return void
      */
-    public function __construct($instance_id = 0 )
+    public function __construct( $instance_id = 0 )
     {
+      $this->instance_id = absint( $instance_id );
       $this->id                 = 'cdek';
       $this->method_title       = 'СДЭК';
       $this->method_description = __( 'Поддержка системы СДЭК' ); //
-      $this->enabled = isset( $this->settings['enabled'] ) ? $this->settings['enabled'] : 'yes';
-      $this->title = isset( $this->settings['title'] ) ? $this->settings['title'] : "Доставка СДЭК";
-      $this->instance_id = absint( $instance_id );
+
       $this->supports  = array(
        'shipping-zones',
+       // 'settings',
        'instance-settings',
        'instance-settings-modal',
       );
+
+      $this->enabled = isset( $this->settings['enabled'] ) ? $this->settings['enabled'] : 'yes';
+      // $this->title = isset( $this->settings['title'] ) ? $this->settings['title'] : "Доставка СДЭК";
+
       $this->init();
     }
 
@@ -35,17 +39,18 @@ if ( ! class_exists( 'WC_Yandex_Delivery_Method' ) ) {
      * @access public
      * @return void
      */
-    function init()
+    private function init()
     {
       // Load the settings API
       $this->init_form_fields(); // This is part of the settings API. Override the method to add your own settings
       $this->init_settings(); // This is part of the settings API. Loads settings you previously init.
-      $this->enabled	= $this->get_option( 'enabled' );
+      // $this->enabled	= $this->get_option( 'enabled' );
       $this->title 		= $this->get_option( 'title' );
+      // $this->tax_status	     = $this->get_option( 'tax_status' );
+      // $this->type                 = $this->get_option( 'type', 'class' );
 
       // Save settings in admin if you have any defined
       add_action( 'woocommerce_update_options_shipping_' . $this->id, array( $this, 'process_admin_options' ) );
-
       add_action('woocommerce_checkout_update_order_meta', array( $this, 'add_order_meta'), 10, 2);
     }
 
