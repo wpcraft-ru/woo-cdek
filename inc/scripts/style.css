@@ -1,59 +1,11 @@
 div.CDEK-widget *, div.CDEK-widget *:before, div.CDEK-widget *:after {
-    box-sizing: inherit;
-    -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  -moz-box-sizing: inherit;
 }
 
-/* cyrillic */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/Fl4y0QdOxyyTHEGMXX8kcRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* latin */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* latin */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/oHi30kwQWvpCWqAhzHcCSBJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* latin */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-1. BASIC STYLE  
+1. BASIC STYLE
 ------------------------------------------------------------------------------------------------------------------------
 */
 .mCustomScrollbar {
@@ -81,9 +33,9 @@ div.CDEK-widget *, div.CDEK-widget *:before, div.CDEK-widget *:after {
   width: auto;
   height: auto;
 }
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-2. VERTICAL SCROLLBAR 
+2. VERTICAL SCROLLBAR
 y-axis
 ------------------------------------------------------------------------------------------------------------------------
 */
@@ -188,8 +140,8 @@ y-axis
 }
 /*
 ------------------------------------------------------------------------------------------------------------------------
-4. VERTICAL AND HORIZONTAL SCROLLBARS 
-yx-axis 
+4. VERTICAL AND HORIZONTAL SCROLLBARS
+yx-axis
 ------------------------------------------------------------------------------------------------------------------------
 */
 .mCSB_container_wrapper {
@@ -252,9 +204,9 @@ yx-axis
 .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden {
   margin-bottom: 0;
 }
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-5. TRANSITIONS  
+5. TRANSITIONS
 ------------------------------------------------------------------------------------------------------------------------
 */
 .mCSB_scrollTools,
@@ -273,14 +225,14 @@ yx-axis
   -webkit-transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s, margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s, margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s, opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
   transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s, margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s, margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s, opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
-/* 
+/*
 ------------------------------------------------------------------------------------------------------------------------
-6. SCROLLBAR COLORS, OPACITY AND BACKGROUNDS  
+6. SCROLLBAR COLORS, OPACITY AND BACKGROUNDS
 ------------------------------------------------------------------------------------------------------------------------
 */
-/* 
+/*
 	----------------------------------------
-	6.1 THEMES 
+	6.1 THEMES
 	----------------------------------------
 	*/
 /* default theme ("light") */
@@ -329,15 +281,15 @@ yx-axis
 }
 .mCSB_scrollTools .mCSB_buttonUp {
   background-position: 0 0;
-  /* 
-		sprites locations 
+  /*
+		sprites locations
 		light: 0 0, -16px 0, -32px 0, -48px 0, 0 -72px, -16px -72px, -32px -72px
 		dark: -80px 0, -96px 0, -112px 0, -128px 0, -80px -72px, -96px -72px, -112px -72px
 		*/
 }
 .mCSB_scrollTools .mCSB_buttonDown {
   background-position: 0 -20px;
-  /* 
+  /*
 		sprites locations
 		light: 0 -20px, -16px -20px, -32px -20px, -48px -20px, 0 -92px, -16px -92px, -32px -92px
 		dark: -80px -20px, -96px -20px, -112px -20px, -128px -20px, -80px -92px, -96px -92px, -112 -92px
@@ -345,16 +297,16 @@ yx-axis
 }
 .mCSB_scrollTools .mCSB_buttonLeft {
   background-position: 0 -40px;
-  /* 
-		sprites locations 
+  /*
+		sprites locations
 		light: 0 -40px, -20px -40px, -40px -40px, -60px -40px, 0 -112px, -20px -112px, -40px -112px
 		dark: -80px -40px, -100px -40px, -120px -40px, -140px -40px, -80px -112px, -100px -112px, -120px -112px
 		*/
 }
 .mCSB_scrollTools .mCSB_buttonRight {
   background-position: 0 -56px;
-  /* 
-		sprites locations 
+  /*
+		sprites locations
 		light: 0 -56px, -20px -56px, -40px -56px, -60px -56px, 0 -128px, -20px -128px, -40px -128px
 		dark: -80px -56px, -100px -56px, -120px -56px, -140px -56px, -80px -128px, -100px -128px, -120px -128px
 		*/
@@ -382,143 +334,143 @@ yx-axis
 .ymaps-2-1-56-copyright__wrap {
   display: none !important;
 }
-@-webkit-keyframes "scroll-text" {
+@-webkit-keyframes scroll-text {
   0% {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   100% {
     -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
   }
 }
-@keyframes "scroll-text" {
+@keyframes scroll-text {
   0% {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   100% {
     -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
   }
 }
-@-webkit-keyframes "scroll-text-rev" {
+@-webkit-keyframes scroll-text-rev {
   0% {
     -webkit-transform: translate(80%, 0);
-            transform: translate(80%, 0);
+    transform: translate(80%, 0);
   }
   100% {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 }
-@keyframes "scroll-text-rev" {
+@keyframes scroll-text-rev {
   0% {
     -webkit-transform: translate(80%, 0);
-            transform: translate(80%, 0);
+    transform: translate(80%, 0);
   }
   100% {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 }
-@-webkit-keyframes "burger-open-top" {
+@-webkit-keyframes burger-open-top {
   50% {
     -webkit-transform: translate3d(0, 8px, 0);
-            transform: translate3d(0, 8px, 0);
+    transform: translate3d(0, 8px, 0);
   }
   100% {
     -webkit-transform: translate3d(0, 8px, 0) rotate(45deg);
-            transform: translate3d(0, 8px, 0) rotate(45deg);
+    transform: translate3d(0, 8px, 0) rotate(45deg);
   }
 }
-@keyframes "burger-open-top" {
+@keyframes burger-open-top {
   50% {
     -webkit-transform: translate3d(0, 8px, 0);
-            transform: translate3d(0, 8px, 0);
+    transform: translate3d(0, 8px, 0);
   }
   100% {
     -webkit-transform: translate3d(0, 8px, 0) rotate(45deg);
-            transform: translate3d(0, 8px, 0) rotate(45deg);
+    transform: translate3d(0, 8px, 0) rotate(45deg);
   }
 }
-@-webkit-keyframes "burger-open-bot" {
+@-webkit-keyframes burger-open-bot {
   50% {
     -webkit-transform: translate3d(0, -8px, 0);
-            transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -8px, 0);
   }
   100% {
     -webkit-transform: translate3d(0, -8px, 0) rotate(-45deg);
-            transform: translate3d(0, -8px, 0) rotate(-45deg);
+    transform: translate3d(0, -8px, 0) rotate(-45deg);
   }
 }
-@keyframes "burger-open-bot" {
+@keyframes burger-open-bot {
   50% {
     -webkit-transform: translate3d(0, -8px, 0);
-            transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -8px, 0);
   }
   100% {
     -webkit-transform: translate3d(0, -8px, 0) rotate(-45deg);
-            transform: translate3d(0, -8px, 0) rotate(-45deg);
+    transform: translate3d(0, -8px, 0) rotate(-45deg);
   }
 }
-@-webkit-keyframes "burger-close-top" {
+@-webkit-keyframes burger-close-top {
   0% {
     -webkit-transform: translate3d(0, 8px, 0) rotate(45deg);
-            transform: translate3d(0, 8px, 0) rotate(45deg);
+    transform: translate3d(0, 8px, 0) rotate(45deg);
   }
   50% {
     -webkit-transform: translate3d(0, 8px, 0) rotate(0deg);
-            transform: translate3d(0, 8px, 0) rotate(0deg);
+    transform: translate3d(0, 8px, 0) rotate(0deg);
   }
   100% {
     -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
-@keyframes "burger-close-top" {
+@keyframes burger-close-top {
   0% {
     -webkit-transform: translate3d(0, 8px, 0) rotate(45deg);
-            transform: translate3d(0, 8px, 0) rotate(45deg);
+    transform: translate3d(0, 8px, 0) rotate(45deg);
   }
   50% {
     -webkit-transform: translate3d(0, 8px, 0) rotate(0deg);
-            transform: translate3d(0, 8px, 0) rotate(0deg);
+    transform: translate3d(0, 8px, 0) rotate(0deg);
   }
   100% {
     -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
-@-webkit-keyframes "burger-close-bot" {
+@-webkit-keyframes burger-close-bot {
   0% {
     -webkit-transform: translate3d(0, -8px, 0) rotate(-45deg);
-            transform: translate3d(0, -8px, 0) rotate(-45deg);
+    transform: translate3d(0, -8px, 0) rotate(-45deg);
   }
   50% {
     -webkit-transform: translate3d(0, -8px, 0) rotate(0deg);
-            transform: translate3d(0, -8px, 0) rotate(0deg);
+    transform: translate3d(0, -8px, 0) rotate(0deg);
   }
   100% {
     -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
-@keyframes "burger-close-bot" {
+@keyframes burger-close-bot {
   0% {
     -webkit-transform: translate3d(0, -8px, 0) rotate(-45deg);
-            transform: translate3d(0, -8px, 0) rotate(-45deg);
+    transform: translate3d(0, -8px, 0) rotate(-45deg);
   }
   50% {
     -webkit-transform: translate3d(0, -8px, 0) rotate(0deg);
-            transform: translate3d(0, -8px, 0) rotate(0deg);
+    transform: translate3d(0, -8px, 0) rotate(0deg);
   }
   100% {
     -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
-@-webkit-keyframes "hint-active" {
+@-webkit-keyframes hint-active {
   0% {
     right: -300px;
     opacity: 0;
@@ -531,7 +483,7 @@ yx-axis
     right: 67px;
   }
 }
-@keyframes "hint-active" {
+@keyframes hint-active {
   0% {
     right: -300px;
     opacity: 0;
@@ -544,92 +496,92 @@ yx-axis
     right: 67px;
   }
 }
-@-webkit-keyframes 'icons' {
+@-webkit-keyframes icons {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   25% {
     -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
+    transform: rotate(-15deg);
   }
   50% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   75% {
     -webkit-transform: rotate(15deg);
-            transform: rotate(15deg);
+    transform: rotate(15deg);
   }
   100% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }
-@keyframes 'icons' {
+@keyframes icons {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   25% {
     -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
+    transform: rotate(-15deg);
   }
   50% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   75% {
     -webkit-transform: rotate(15deg);
-            transform: rotate(15deg);
+    transform: rotate(15deg);
   }
   100% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }
-@-webkit-keyframes 'icons2' {
+@-webkit-keyframes icons2 {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   25% {
     -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
   50% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   75% {
     -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
 }
-@keyframes 'icons2' {
+@keyframes icons2 {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   25% {
     -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
   50% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   75% {
     -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
 }
 .CDEK-widget {
@@ -639,10 +591,10 @@ yx-axis
   position: relative;
   overflow: hidden;
   -webkit-transform-style: flat;
-          transform-style: flat;
+  transform-style: flat;
   -webkit-perspective: 2000px;
-          perspective: 2000px;
-  font: 300 14px/20px 'Roboto', sans-serif;
+  perspective: 2000px;
+
 }
 .CDEK-widget a {
   text-decoration: none;
@@ -656,14 +608,14 @@ yx-axis
   position: absolute;
   top: 10px;
   left: 10px;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   -webkit-transform: translateY(0px);
-      -ms-transform: translateY(0px);
-          transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
   opacity: 1;
   -webkit-transition: -webkit-transform 1s, opacity 1s;
-          transition: transform 1s, opacity 1s;
+  transition: transform 1s, opacity 1s;
   z-index: 5;
 }
 .CDEK-widget__search-box {
@@ -674,11 +626,10 @@ yx-axis
   width: 100%;
   border-radius: 3px;
   -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   background: #ffffff;
-  -ms-flex-line-pack: stretch;
-      align-content: stretch;
+  align-content: stretch;
 }
 .CDEK-widget__search-box > svg {
   width: 17px;
@@ -694,19 +645,17 @@ yx-axis
   color: #333;
   font-weight: 300;
   -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
-    margin-bottom: 0;
-    height: auto;
-    padding: 1px 0;
-    box-shadow: none;
-    font: 15px 'Roboto', sans-serif;
+  flex-grow: 2;
+  margin-bottom: 0;
+  height: auto;
+  padding: 1px 0;
+  box-shadow: none;
 }
 .CDEK-widget__search-list ul {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   list-style: none;
-  border-radius: 0px 0px 3px 3px;
+  border-radius: 0 0 3px 3px;
   overflow: hidden;
   background: #ffffff;
 }
@@ -722,7 +671,7 @@ yx-axis
   opacity: 1;
   height: 40px;
   -webkit-transition: opacity 0.5s, height 0.5s 0.1s;
-          transition: opacity 0.5s, height 0.5s 0.1s;
+  transition: opacity 0.5s, height 0.5s 0.1s;
   white-space: nowrap;
   overflow: hidden;
   position: relative;
@@ -731,22 +680,22 @@ yx-axis
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 .CDEK-widget__search-list ul li:hover {
   background: #e2efdf;
 }
 .CDEK-widget__search-list ul li:hover::after {
   background: #e2efdf;
-  box-shadow: 0px 0px 46px 29px #e2efdf;
+  box-shadow: 0 0 46px 29px #e2efdf;
 }
 .CDEK-widget__search-list ul li.focus,
 .CDEK-widget__search-list ul li:focus {
@@ -755,10 +704,10 @@ yx-axis
 .CDEK-widget__search-list ul li.focus::after,
 .CDEK-widget__search-list ul li:focus::after {
   background: #e2efdf;
-  box-shadow: 0px 0px 46px 29px #e2efdf;
+  box-shadow: 0 0 46px 29px #e2efdf;
 }
 .CDEK-widget__search-list ul li p {
-  margin: 0px;
+  margin: 0;
   line-height: 1;
 }
 .CDEK-widget__search-list ul li p.CDEK-widget__search-list__city-details {
@@ -782,7 +731,7 @@ yx-axis
   position: absolute;
   top: 0;
   right: 0;
-  box-shadow: 0px 0px 46px 29px #ffffff;
+  box-shadow: 0 0 46px 29px #ffffff;
 }
 .CDEK-widget__search-list__box {
   overflow: hidden;
@@ -792,7 +741,7 @@ yx-axis
   width: 6px;
 }
 .CDEK-widget__search-list__box .mCSB_inside > .mCSB_container {
-  margin-right: 0px;
+  margin-right: 0;
 }
 @media screen and (max-width: 395px) {
   .CDEK-widget__search {
@@ -808,16 +757,16 @@ yx-axis
   z-index: -1;
   opacity: 1;
   -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
+  transform: rotateX(0deg);
   -webkit-transform-origin: top;
-      -ms-transform-origin: top;
-          transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
   -webkit-transition: opacity 0.5s ease-in, -webkit-transform 0.6s linear;
-          transition: opacity 0.5s ease-in, transform 0.6s linear;
+  transition: opacity 0.5s ease-in, transform 0.6s linear;
 }
 .CDEK-widget__delivery-type.CDEK-widget__delivery-type_close {
   -webkit-transform: rotateX(91deg);
-          transform: rotateX(91deg);
+  transform: rotateX(91deg);
   opacity: 0;
 }
 .CDEK-widget__delivery-type__title {
@@ -838,13 +787,13 @@ yx-axis
   margin-top: 5px;
   cursor: pointer;
   -webkit-transition: 0.3s;
-          transition: 0.3s;
+  transition: 0.3s;
 }
 .CDEK-widget__delivery-type__item:hover {
   box-shadow: inset 0 0 49px 73px rgba(80, 166, 49, 0.18);
 }
 .CDEK-widget__delivery-type__item:last-of-type {
-  border-radius: 0px 0px 3px 3px;
+  border-radius: 0 0 3px 3px;
 }
 .CDEK-widget__delivery-type__item.active {
   box-shadow: inset 0 0 49px 73px rgba(80, 166, 49, 0.18);
@@ -894,11 +843,11 @@ yx-axis
   background: #b9b9b9;
   border: none;
   width: 40px;
-  border-radius: 0px 3px 3px 0px;
+  border-radius: 0 3px 3px 0;
   outline: none;
   -webkit-transition: 1s;
-          transition: 1s;
-  box-shadow: -20px 0px 17px -4px #ffffff;
+  transition: 1s;
+  box-shadow: -20px 0 17px -4px #ffffff;
   position: relative;
   z-index: 2;
   height: 100%;
@@ -972,17 +921,17 @@ yx-axis
   width: 60px;
   height: 100%;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   background: rgba(255, 255, 255, 0.8);
   padding: 0;
   z-index: 7;
   -webkit-transform: translateX(0px);
-      -ms-transform: translateX(0px);
-          transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
   opacity: 1;
   -webkit-transition: -webkit-transform 1s, opacity 1s;
-          transition: transform 1s, opacity 1s;
+  transition: transform 1s, opacity 1s;
 }
 .CDEK-widget__sidebar-button {
   width: 100%;
@@ -1027,7 +976,7 @@ yx-axis
   opacity: 0;
   z-index: 6;
   -webkit-transition: right 500ms ease-out, opacity 300ms ease-out;
-          transition: right 500ms ease-out, opacity 300ms ease-out;
+  transition: right 500ms ease-out, opacity 300ms ease-out;
 }
 .CDEK-widget__sidebar-burger {
   display: -webkit-box;
@@ -1035,54 +984,54 @@ yx-axis
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 22px 0px;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 22px 0;
 }
 .CDEK-widget__sidebar-burger span {
   width: 22px;
   height: 2px;
   background: #333333;
   -webkit-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
   -webkit-transition: -webkit-transform 400ms ease-out;
-          transition: transform 400ms ease-out;
+  transition: transform 400ms ease-out;
 }
 .CDEK-widget__sidebar-burger.open span:nth-child(1) {
   -webkit-animation: burger-open-top 400ms ease-out forwards;
-          animation: burger-open-top 400ms ease-out forwards;
+  animation: burger-open-top 400ms ease-out forwards;
 }
 .CDEK-widget__sidebar-burger.open span:nth-child(2) {
   opacity: 0;
   -webkit-transition: -webkit-transform 400ms ease-out, opacity 0ms linear 200ms;
-          transition: transform 400ms ease-out, opacity 0ms linear 200ms;
+  transition: transform 400ms ease-out, opacity 0ms linear 200ms;
 }
 .CDEK-widget__sidebar-burger.open span:nth-child(3) {
   -webkit-animation: burger-open-bot 400ms ease-out forwards;
-          animation: burger-open-bot 400ms ease-out forwards;
+  animation: burger-open-bot 400ms ease-out forwards;
 }
 .CDEK-widget__sidebar-burger.close span:nth-child(1) {
   -webkit-animation: burger-close-top 400ms ease-out forwards;
-          animation: burger-close-top 400ms ease-out forwards;
+  animation: burger-close-top 400ms ease-out forwards;
 }
 .CDEK-widget__sidebar-burger.close span:nth-child(2) {
   opacity: 1;
   -webkit-transition: -webkit-transform 400ms ease-out, opacity 0ms linear 200ms;
-          transition: transform 400ms ease-out, opacity 0ms linear 200ms;
+  transition: transform 400ms ease-out, opacity 0ms linear 200ms;
 }
 .CDEK-widget__sidebar-burger.close span:nth-child(3) {
   -webkit-animation: burger-close-bot 400ms ease-out forwards;
-          animation: burger-close-bot 400ms ease-out forwards;
+  animation: burger-close-bot 400ms ease-out forwards;
 }
 .CDEK-widget__sidebar hr {
-  margin: 0px auto;
+  margin: 0 auto;
   width: 36px;
   border: none;
   border-top: 1px solid #dddddd;
@@ -1098,11 +1047,11 @@ yx-axis
   display: -ms-flexbox;
   display: flex;
   -webkit-transform: translateY(0px);
-      -ms-transform: translateY(0px);
-          transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
   opacity: 1;
   -webkit-transition: -webkit-transform 1s, opacity 1s;
-          transition: transform 1s, opacity 1s;
+  transition: transform 1s, opacity 1s;
 }
 .CDEK-widget__logo svg {
   width: 80%;
@@ -1129,23 +1078,23 @@ svg .CDEK-widget__logo-e {
   overflow: hidden;
   background: rgba(59, 59, 61, 0.8);
   position: absolute;
-  top: 0px;
+  top: 0;
   right: 60px;
   z-index: 6;
   -webkit-transform-origin: right;
-      -ms-transform-origin: right;
-          transform-origin: right;
+  -ms-transform-origin: right;
+  transform-origin: right;
   opacity: 0;
   -webkit-transition: -webkit-transform 0.3s linear, opacity 0.5s ease-in;
-          transition: transform 0.3s linear, opacity 0.5s ease-in;
+  transition: transform 0.3s linear, opacity 0.5s ease-in;
 }
 .CDEK-widget__panel:not(.CDEK-widget__panel_ios) {
   -webkit-transform: rotateY(-101deg);
-          transform: rotateY(-101deg);
+  transform: rotateY(-101deg);
 }
 .CDEK-widget__panel.open:not(.CDEK-widget__panel_ios) {
   -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
+  transform: rotateY(0deg);
   opacity: 1;
 }
 .CDEK-widget__panel.CDEK-widget__panel_ios {
@@ -1183,38 +1132,38 @@ svg .CDEK-widget__logo-e {
   text-overflow: clip;
 }
 .CDEK-widget__panel-headline.hover-long span {
-  -webkit-animation-name: "scroll-text", "scroll-text-rev";
-          animation-name: "scroll-text", "scroll-text-rev";
+  -webkit-animation-name: scroll-text, scroll-text-rev;
+  animation-name: scroll-text, scroll-text-rev;
   -webkit-animation-play-state: running;
-          animation-play-state: running;
+  animation-play-state: running;
   -webkit-animation-duration: 10s, 7s;
-          animation-duration: 10s, 7s;
+  animation-duration: 10s, 7s;
   -webkit-animation-delay: 500ms, 10.5s;
-          animation-delay: 500ms, 10.5s;
+  animation-delay: 500ms, 10.5s;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
   -webkit-animation-fill-mode: forwards, forwards;
-          animation-fill-mode: forwards, forwards;
+  animation-fill-mode: forwards, forwards;
   -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }
 .CDEK-widget__panel-content {
   width: 100%;
   height: calc(100% - 60px);
   overflow: hidden;
-  padding: 0px 1px;
+  padding: 0 1px;
 }
 .CDEK-widget__panel > div {
   height: 100%;
   width: 330px;
   position: absolute;
-  top: 0px;
+  top: 0;
 }
 .CDEK-widget__panel-list {
   display: none;
-  left: 0px;
+  left: 0;
   -webkit-transition: left ease 0.5s;
-          transition: left ease 0.5s;
+  transition: left ease 0.5s;
 }
 .CDEK-widget__panel-list__item {
   width: 100%;
@@ -1225,13 +1174,13 @@ svg .CDEK-widget__logo-e {
   margin-bottom: 5px;
   cursor: pointer;
   -webkit-transition: background 0.2s;
-          transition: background 0.2s;
+  transition: background 0.2s;
 }
 .CDEK-widget__panel-list__item:last-of-type {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 .CDEK-widget__panel-list__item p {
-  margin: 0px 0px 5px 23px;
+  margin: 0 0 5px 23px;
   font-size: 16px;
   line-height: 1.2;
 }
@@ -1243,7 +1192,7 @@ svg .CDEK-widget__logo-e {
   position: inherit;
   display: inline-block;
   vertical-align: middle;
-  margin: 0px 10px 0px -27px;
+  margin: 0 10px 0 -27px;
 }
 .CDEK-widget__panel-list__item-adress svg .svg-line {
   fill: #ffffff;
@@ -1253,7 +1202,7 @@ svg .CDEK-widget__logo-e {
   position: inherit;
   display: inline-block;
   vertical-align: baseline;
-  margin: 0px 10px -1px -27px;
+  margin: 0 10px -1px -27px;
 }
 .CDEK-widget__panel-list__item-time svg .svg-line {
   fill: #ffffff;
@@ -1268,7 +1217,7 @@ svg .CDEK-widget__logo-e {
   display: none;
   right: -330px;
   -webkit-transition: right ease 0.5s;
-          transition: right ease 0.5s;
+  transition: right ease 0.5s;
 }
 .CDEK-widget__panel-details .CDEK-widget__panel-headline {
   position: relative;
@@ -1284,8 +1233,8 @@ svg .CDEK-widget__logo-e {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   cursor: pointer;
   z-index: 4;
 }
@@ -1297,7 +1246,7 @@ svg .CDEK-widget__logo-e {
 .CDEK-widget__panel-details__back svg .path {
   fill: #b9b9b9;
   -webkit-transition: 200ms;
-          transition: 200ms;
+  transition: 200ms;
 }
 .CDEK-widget__panel-details__back:hover svg .path {
   fill: #ffffff;
@@ -1306,7 +1255,7 @@ svg .CDEK-widget__logo-e {
   margin-top: 12px;
 }
 .CDEK-widget__panel-details__block p {
-  margin: 0px;
+  margin: 0;
   padding-right: 10px;
 }
 .CDEK-widget__panel-details__block-head {
@@ -1359,15 +1308,15 @@ svg .CDEK-widget__logo-e {
 .CDEK-widget__panel-contacts .CDEK-widget__panel-content p a svg .path {
   fill: #ffffff;
   -webkit-transition: 0.5s;
-          transition: 0.5s;
+  transition: 0.5s;
 }
 .CDEK-widget__panel-contacts .CDEK-widget__panel-content p a.CDEK-widget__phone:hover svg {
   -webkit-animation: 'icons' 1.2s linear 0s infinite forwards;
-          animation: 'icons' 1.2s linear 0s infinite forwards;
+  animation: 'icons' 1.2s linear 0s infinite forwards;
 }
 .CDEK-widget__panel-contacts .CDEK-widget__panel-content p a.CDEK-widget__mail:hover svg {
   -webkit-animation: 'icons2' 1.2s linear 0s infinite forwards;
-          animation: 'icons2' 1.2s linear 0s infinite forwards;
+  animation: 'icons2' 1.2s linear 0s infinite forwards;
 }
 @media screen and (max-width: 400px) {
   .CDEK-widget__panel {
@@ -1383,15 +1332,15 @@ svg .CDEK-widget__logo-e {
   z-index: -1;
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 50px;
   opacity: 0;
   -webkit-transition: opacity 0.5s ease, z-index 0s ease 0.2s;
-          transition: opacity 0.5s ease, z-index 0s ease 0.2s;
+  transition: opacity 0.5s ease, z-index 0s ease 0.2s;
 }
 .CDEK-widget__photo-block {
   margin: auto;
@@ -1412,20 +1361,20 @@ svg .CDEK-widget__logo-e {
   width: 16px;
   height: 16px;
   top: -29px;
-  right: 0px;
+  right: 0;
   cursor: pointer;
 }
 .CDEK-widget__photo-block__cross svg .cross {
   fill: #cccccc;
   -webkit-transition: 0.3s;
-          transition: 0.3s;
+  transition: 0.3s;
 }
 .CDEK-widget__photo-block__cross:hover svg .cross {
   fill: #50a631;
 }
 .CDEK-widget__photo.active {
   -webkit-transition: opacity 1s ease 0.2s;
-          transition: opacity 1s ease 0.2s;
+  transition: opacity 1s ease 0.2s;
   opacity: 1;
   z-index: 10;
 }
@@ -1433,7 +1382,6 @@ svg .CDEK-widget__logo-e {
   position: relative;
   padding: 8px 20px;
   cursor: pointer;
-  font: 300 16px/1 'Roboto', sans-serif;
   color: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.5);
   background: transparent;
@@ -1442,7 +1390,7 @@ svg .CDEK-widget__logo-e {
   display: inline-block;
   overflow: hidden;
   -webkit-transition: all 0.4s;
-          transition: all 0.4s;
+  transition: all 0.4s;
 }
 .CDEK-widget__choose::after {
   content: '';
@@ -1455,10 +1403,10 @@ svg .CDEK-widget__logo-e {
   opacity: 0;
   background-color: rgba(80, 166, 49, 0.5);
   -webkit-transition: all 0.4s;
-          transition: all 0.4s;
+  transition: all 0.4s;
   -webkit-transform: scale(0.5, 1);
-      -ms-transform: scale(0.5, 1);
-          transform: scale(0.5, 1);
+  -ms-transform: scale(0.5, 1);
+  transform: scale(0.5, 1);
   border-radius: 3px;
 }
 .CDEK-widget__choose:hover {
@@ -1468,26 +1416,26 @@ svg .CDEK-widget__logo-e {
 .CDEK-widget__choose:hover::after {
   opacity: 1;
   -webkit-transform: scale(1, 1);
-      -ms-transform: scale(1, 1);
-          transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 .CDEK-widget__inaccessible {
   opacity: 0;
 }
 .CDEK-widget__search.CDEK-widget__inaccessible {
   -webkit-transform: translateY(-55px);
-      -ms-transform: translateY(-55px);
-          transform: translateY(-55px);
+  -ms-transform: translateY(-55px);
+  transform: translateY(-55px);
 }
 .CDEK-widget__sidebar.CDEK-widget__inaccessible {
   -webkit-transform: translateX(70px);
-      -ms-transform: translateX(70px);
-          transform: translateX(70px);
+  -ms-transform: translateX(70px);
+  transform: translateX(70px);
 }
 .CDEK-widget__logo.CDEK-widget__inaccessible {
   -webkit-transform: translateY(75px);
-      -ms-transform: translateY(75px);
-          transform: translateY(75px);
+  -ms-transform: translateY(75px);
+  transform: translateY(75px);
 }
 .CDEK-widget__developer {
   position: absolute;
@@ -1566,11 +1514,11 @@ svg .CDEK-widget__logo-e {
   background: repeating-linear-gradient(90deg, #333, #333 0.5em, transparent 0.5em, transparent 1em);
   background-repeat-x: repeat;
   background-size: 600px;
-  bottom: 0px;
-  left: 0px;
-  background-position-x: 0px;
-  -webkit-animation: 'truck' 5s linear 0s infinite normal;
-          animation: 'truck' 5s linear 0s infinite normal;
+  bottom: 0;
+  left: 0;
+  background-position-x: 0;
+  -webkit-animation: truck 5s linear 0s infinite normal;
+  animation: truck 5s linear 0s infinite normal;
   z-index: 1;
 }
 .CDEK-widget__preloader-truck::after {
@@ -1578,8 +1526,8 @@ svg .CDEK-widget__logo-e {
   height: 100%;
   width: 10%;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: 2;
   background: -webkit-linear-gradient(left, #ffffff 0%, #ffffff 1%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(to right, #ffffff 0%, #ffffff 1%, rgba(255, 255, 255, 0) 100%);
@@ -1590,8 +1538,8 @@ svg .CDEK-widget__logo-e {
   width: 10%;
   position: absolute;
   z-index: 2;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   background: -webkit-linear-gradient(right, #ffffff 0%, #ffffff 1%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(to left, #ffffff 0%, #ffffff 1%, rgba(255, 255, 255, 0) 100%);
 }
@@ -1624,45 +1572,45 @@ svg .CDEK-widget__logo-e {
   border-radius: 50%;
   bottom: -50px;
   -webkit-transform: translateX(103%);
-      -ms-transform: translateX(103%);
-          transform: translateX(103%);
+  -ms-transform: translateX(103%);
+  transform: translateX(103%);
   -webkit-animation: 'gruss' 5s linear 0s infinite normal;
-          animation: 'gruss' 5s linear 0s infinite normal;
+  animation: 'gruss' 5s linear 0s infinite normal;
 }
-@-webkit-keyframes 'truck' {
+@-webkit-keyframes truck {
   0% {
-    background-position-x: 0px;
+    background-position-x: 0;
   }
   100% {
     background-position-x: -600px;
   }
 }
-@keyframes 'truck' {
+@keyframes truck {
   0% {
-    background-position-x: 0px;
+    background-position-x: 0;
   }
   100% {
     background-position-x: -600px;
   }
 }
-@-webkit-keyframes 'gruss' {
+@-webkit-keyframes gruss {
   0% {
     -webkit-transform: translateX(103%);
-            transform: translateX(103%);
+    transform: translateX(103%);
   }
   100% {
     -webkit-transform: translateX(-250%);
-            transform: translateX(-250%);
+    transform: translateX(-250%);
   }
 }
-@keyframes 'gruss' {
+@keyframes gruss {
   0% {
     -webkit-transform: translateX(103%);
-            transform: translateX(103%);
+    transform: translateX(103%);
   }
   100% {
     -webkit-transform: translateX(-250%);
-            transform: translateX(-250%);
+    transform: translateX(-250%);
   }
 }
 .CDEK-widget__popup {
@@ -1671,7 +1619,7 @@ svg .CDEK-widget__logo-e {
   min-width: 320px;
   margin: auto;
   position: relative;
-  padding: 35px 0px;
+  padding: 35px 0;
 }
 .CDEK-widget__popup-button {
   outline: none;
@@ -1682,7 +1630,7 @@ svg .CDEK-widget__logo-e {
   border-radius: 3px;
   box-shadow: inset -1px -66px 79px -62px #0f743c;
   -webkit-transition: background 0.3s, box-shadow 0.3s;
-          transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
   border: 1px solid #39b112;
 }
 .CDEK-widget__popup-button:hover {
@@ -1694,17 +1642,18 @@ svg .CDEK-widget__logo-e {
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 1000000;
 }
 .CDEK-widget__popup-mask.CDEK-widget__popup-mask-open {
   z-index: 200;
   -webkit-transform: scale(1, 1);
-      -ms-transform: scale(1, 1);
-          transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
   opacity: 1;
 }
 .CDEK-widget__popup__close-btn {
@@ -1712,13 +1661,13 @@ svg .CDEK-widget__logo-e {
   height: 30px;
   display: block;
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 0;
+  top: 0;
   -webkit-transition: -webkit-transform 0.3s;
-          transition: transform 0.3s;
+  transition: transform 0.3s;
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 .CDEK-widget__popup__close-btn::before,
 .CDEK-widget__popup__close-btn::after {
@@ -1731,22 +1680,22 @@ svg .CDEK-widget__logo-e {
   margin-top: -1px;
   background: #fff;
   -webkit-transition: background 0.4s;
-          transition: background 0.4s;
+  transition: background 0.4s;
 }
 .CDEK-widget__popup__close-btn::before {
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .CDEK-widget__popup__close-btn::after {
   -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 .CDEK-widget__popup__close-btn:hover {
   -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 .CDEK-widget__popup__close-btn:hover::before,
 .CDEK-widget__popup__close-btn:hover::after {

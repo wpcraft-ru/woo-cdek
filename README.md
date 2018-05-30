@@ -1,20 +1,12 @@
 === WooCommerce CDEK ===
-
 Contributors: casepress
-
 Donate link: https://wpcraft.ru/product/woocommerce-cdek-extra/
-
 Tags: cdek, woocommerce, sync, integration, delivery, shipment
-
 Requires at least: 4.0
-
 Tested up to: 4.8
 Stable tag: 4.3
-
 License: GPLv2 or later
-
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
 
 
 CDEK and WooCommerce - sync, integration, connection
@@ -23,9 +15,7 @@ CDEK and WooCommerce - sync, integration, connection
 
 Integration WooCommerce & CDEK (for Russia)
 
-Интеграция для системы СДЭК (служба доставки для Интернет магазинов) и WooCommerce (WordPress).
-
-Внимание! Это бета версия для открытого тестирования.
+Интеграция для системы СДЭК (служба доставки для Интернет магазинов) и WooCommerce (WordPress)
 
 Особенности:
 
@@ -63,3 +53,45 @@ e.g.
 WordPress 4.5
 WooCommerce 3.0 - мб будет работать на Woo 2.х но не факт.
 PHP 5.6
+
+
+== Screenshots ==
+
+1. Страница настроек.
+2. Страница управления
+
+== Changelog ==
+
+= 0.8.5 =
+* Исправили ошибки с зонами и рассчетами в некоторых конфигурациях
+
+= 0.8.3 =
+* Поправили ошибку работы с гостями при пустом городе доставки
+
+= 0.8.2 =
+* Добавили сохранение адреса ПВЗ в метаполе Доставки Заказа
+
+= 0.8.1 =
+* Убрали лишний jQuery скрипт на 80 Кб )
+
+= 0.7.2 =
+* Переписан curl -> wp_http
+
+= 0.7.1 =
+* Удален error_reporting(0)
+
+= 0.7 =
+* Рефакторинг некоторых частей
+
+= 0.6 =
+* Переделал template.php на логику WP
+
+= 0.5 =
+* Переделал service.php на логику WP
+
+= 0.4 =
+* Add settings page
+* Beta version
+
+= 0.3 =
+* Alfa version
